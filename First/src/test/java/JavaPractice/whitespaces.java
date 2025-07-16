@@ -5,6 +5,8 @@ public class whitespaces {
 		String s = "rahul gupta is a tester";
 		char[] inputArray = s.toCharArray();
 		char[] result = new char[inputArray.length];
+		
+		System.out.println(inputArray);
 
 		// Mark spaces in result
 		for (int i = 0; i < inputArray.length; i++) {
