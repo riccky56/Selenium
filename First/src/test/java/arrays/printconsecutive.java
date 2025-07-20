@@ -17,11 +17,10 @@ public class printconsecutive {
 			}
 			if(i<len2) {
 				sb.append(b.charAt(i));
-			}	
+			}
 			i++;
 		}
 		System.out.println(sb.toString());
-
 
 	}
 }
