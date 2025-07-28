@@ -25,10 +25,10 @@ public class Count_occurence_of_chars_InString {
 				hash_map.put(c, 1);
 			}
 		}
-		// Print the hashmap object which gives the number of each character in String.
-		System.out.println(hash_map);
+		System.out.println(hash_map); // Print the hashmap object which gives the number of each character in String.
 		
-       for(Map.Entry<Character, Integer> entry:hash_map.entrySet()) {
+       for(Map.Entry<Character,Integer> entry : hash_map.entrySet())
+       {
     	   if(entry.getValue()>1) {
     		   
     		   System.out.println(entry.getKey()  + " : " + entry.getValue() );

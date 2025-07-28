@@ -8,7 +8,7 @@ public class convert_to_a1b2c3d4e5f6 {
 	public static void main(String[] args) {
 		String d = "abbcccddddeeeeeffffff";
 		Map<Character,Integer> hashmap = new HashMap<>();
-
+		
 		for (char c : d.toCharArray()) {
 			if (hashmap.containsKey(c)) 			// && c!=' ' to remove space give this condition also
 			{
