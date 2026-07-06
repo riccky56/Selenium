@@ -1,6 +1,6 @@
 package arrays;
 
-public class asdfghjk {
+public class countduplicateinStrings {
 
 	public static void main(String[] args) {
 
