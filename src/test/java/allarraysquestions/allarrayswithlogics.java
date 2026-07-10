@@ -3,6 +3,23 @@ package allarraysquestions;
 import java.util.*;
 
 public class allarrayswithlogics {
+		public static void main(String[] args) {
+		// Example usage
+		int[] arr = {3, 1, 4, 1, 5, 9, 2, 6, 5};
+		System.out.println("Max: " + findMax(arr));
+		System.out.println("Second Largest: " + secondLargest(arr));
+		reverse(arr);
+		System.out.println("Reversed: " + Arrays.toString(arr));
+		System.out.println("Is Sorted: " + isSorted(arr));
+		System.out.println("Frequency: " + frequency(arr));
+		int newLength = removeDuplicates(new int[]{1, 1, 2, 2, 3});
+		System.out.println("New Length after removing duplicates: " + newLength);
+		int[] arr2 = {0, 1, 0, 3, 12};
+		moveZeros(arr2);
+		System.out.println("After moving zeros: " + Arrays.toString(arr2));
+		int[] merged = mergeSorted(new int[]{1, 3, 5}, new int[]{2, 4, 6});
+		System.out.println("Merged Sorted Arrays: " + Arrays.toString(merged));
+	}
 
 	// ========== TIER 1 — BASICS (1–10) ==========
 	
@@ -10,8 +27,9 @@ public class allarrayswithlogics {
 	static int findMax(int[] arr) {
 		if (arr.length == 0) throw new IllegalArgumentException("empty array");
 		int max = arr[0];
-		for (int i = 1; i < arr.length; i++)
-			if (arr[i] > max) max = arr[i];
+		for (int i = 1; i < arr.length; i++) {
+			
+			if (arr[i] > max) max = arr[i];}
 		return max;
 	}
 

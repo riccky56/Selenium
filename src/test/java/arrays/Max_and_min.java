@@ -19,7 +19,7 @@ public class Max_and_min {
 				large=a[i];
 			}
 			
-		}
+			
 		
 		int difference =  large - small;
 		System.out.println("minimum : " + small);
@@ -29,4 +29,4 @@ public class Max_and_min {
 	}
 
 
-}
+}}
