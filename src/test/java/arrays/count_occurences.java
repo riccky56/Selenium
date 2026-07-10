@@ -16,9 +16,9 @@ public class count_occurences {
 			}
 
 			int count = 1;
-			for(int j=i+1; j<a.length(); j++) 
-			{
-
+			for(int j=i+1; j<a.length(); j++)
+			{	
+				
 				if(b[i] == b[j]) {
 					count++;
 					visited[j]=true;
