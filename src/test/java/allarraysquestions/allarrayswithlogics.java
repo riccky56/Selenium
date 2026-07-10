@@ -5,7 +5,7 @@ import java.util.*;
 public class allarrayswithlogics {
 		public static void main(String[] args) {
 		// Example usage
-		int[] arr = {3, 1, 4, 1, 5, 9, 2, 6, 5};
+		int[] arr = { 1, 5, 9, 12, 16, 25};
 		System.out.println("Max: " + findMax(arr));
 		System.out.println("Second Largest: " + secondLargest(arr));
 		reverse(arr);
@@ -61,7 +61,9 @@ public class allarrayswithlogics {
 
 	// 4. Check if an array is sorted (ascending)
 	static boolean isSorted(int[] arr) {
-		for (int i = 1; i < arr.length; i++)
+		for (int i = 1; i < arr.length-1; i++)
+			
+		
 			if (arr[i] < arr[i - 1]) return false;
 		return true;
 	}
