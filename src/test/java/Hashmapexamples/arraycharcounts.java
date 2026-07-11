@@ -18,7 +18,7 @@ public class arraycharcounts {
 	        // go through the array one number at a time
 	        for (int x : arr) {
 	            freq.merge(x, 1, Integer::sum);
-	           
+	            
 	        }
 
 	        // print the final result
