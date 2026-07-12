@@ -22,8 +22,10 @@ public class RemoveDuplicatesExample {
 		// fast = scout that checks every element ahead
 		for (int fast = 1; fast < arr.length; fast++) {
 			if (arr[fast] != arr[slow]) {
+				
 				slow++;
 				arr[slow] = arr[fast];
+					
 			}
 		}
 
