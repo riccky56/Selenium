@@ -23,7 +23,7 @@ public class moveZerostoRight {
 		}
 
 		// second pass: fill whatever is left over with zeros
-		while (nonzeroindex < arr.length) {
+		while (nonzeroindex < arr.length) {	
 
 			arr[nonzeroindex] = 0;
 			nonzeroindex++;
@@ -33,7 +33,7 @@ public class moveZerostoRight {
 
 		// using two pointer approach to swap non-zero numbers to the front and zeros to
 		// the back in a single pass
-		int[] arr2 = { 0, 1, 4, 8, 4, 0, 5, 0, 2, 7, 8, 12, 0, 12, 16 };
+		int[] arr2 = { 0, 1, 4, 8, 4,0,0, 0, 5, 0, 2, 7, 8, 12, 0, 12, 16 };
 
 		System.out.println("Original array: " + Arrays.toString(arr2));
 
