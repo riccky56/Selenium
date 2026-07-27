@@ -61,13 +61,12 @@ public class allarrayswithlogics {
 
 	// 4. Check if an array is sorted (ascending)
 	static boolean isSorted(int[] arr) {
-		for (int i = 0; i < arr.length-1; i++) {
+		for (int i = 1; i < arr.length-1; i++) {
 					
 			if (arr[i] < arr[i + 1]) 
-				return true;
-			
+				return false;
 		}
-		return false;
+		return true;
 		
 	}
 	
@@ -77,6 +76,7 @@ public class allarrayswithlogics {
 		for (int x : arr)
 			freq.merge(x, 1, Integer::sum);
 		return freq;
+		
 	}
 
 	// 6. Remove duplicates from a sorted array (in place, slow-fast pointer)
@@ -113,7 +113,7 @@ public class allarrayswithlogics {
 	static int binarySearch(int[] arr, int target) {
 		int lo = 0, hi = arr.length - 1;
 		while (lo <= hi) {
-			int mid = lo + (hi - lo) / 2; // avoids overflow
+			int mid = lo + (hi - lo) / 2; // avoids overflow 
 			if (arr[mid] == target) return mid;
 			else if (arr[mid] < target) lo = mid + 1;
 			else hi = mid - 1;
