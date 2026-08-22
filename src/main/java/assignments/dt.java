@@ -1,9 +1,9 @@
 package assignments;
 
-// Class declaration that groups the related example logic in one place.
+// Placeholder class kept for future assignment experiments.
 public class dt {
 
-	// Main method where program execution starts.
+	// Empty entry point stub intentionally left for future implementation.
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		

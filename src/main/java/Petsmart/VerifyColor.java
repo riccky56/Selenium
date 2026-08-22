@@ -9,9 +9,9 @@ import org.openqa.selenium.support.Color;
 
 import Base.Browser;
 
-// Class declaration that groups the related example logic in one place.
+// Demonstrates reading CSS color value from a heading and converting it to hex format.
 public class VerifyColor extends Browser{
-   // Main method where program execution starts.
+   // Open page, capture color of heading text, and print rgba/hex values.
    public static void main(String[] args) {
       
       WebDriver driver = new ChromeDriver();
@@ -22,9 +22,9 @@ public class VerifyColor extends Browser{
       String s = t.getCssValue("color");
       // convert rgba to hex
       String c = Color.fromString(s).asHex();
-      // Display information to the console for the user.
+      // Print the raw CSS color value (usually rgba).
       System.out.println("Color is :" + s);
-      // Display information to the console for the user.
+      // Print the equivalent hex color value.
       System.out.println("Hex code for color:" + c);
       
       

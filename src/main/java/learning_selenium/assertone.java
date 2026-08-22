@@ -5,10 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
-// Class declaration that groups the related example logic in one place.
+// Demonstrates asserting checkbox state before and after clicking it.
 public class assertone {
 public static WebDriver driver;
-	// Main method where program execution starts.
+	// Open the page, verify initial unchecked state, click checkbox, and verify checked state.
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		 driver =new ChromeDriver();
@@ -21,7 +21,7 @@ public static WebDriver driver;
 
 		driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).click();
 
-		// Display information to the console for the user.
+		// Print selected state after click for quick confirmation.
 		System.out.println(driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).isSelected());
 
 		Assert.assertTrue(driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).isSelected());

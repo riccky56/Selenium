@@ -4,7 +4,7 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-// Class declaration that groups the related example logic in one place.
+// Minimal TestNG listener that logs success, failure, and skipped events.
 public class mylisteners implements ITestListener{
 	
 	public void onTestStart(ITestResult result) {
@@ -13,19 +13,19 @@ public class mylisteners implements ITestListener{
 
 	 public void onTestSuccess(ITestResult result) {
 	    
-		 // Display information to the console for the user.
+		 // Print when a test passes.
 		 System.out.println("on success");
 	  }
 
 	  
 	public void onTestFailure(ITestResult result) {
-	    // Display information to the console for the user.
+	    // Print when a test fails.
 	    System.out.println("on failure");
 	  }
 
 	  
 	public void onTestSkipped(ITestResult result) {
-		// Display information to the console for the user.
+		// Print when a test is skipped.
 		System.out.println("on skipped");
 	}
 	

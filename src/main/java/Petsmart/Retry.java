@@ -4,7 +4,7 @@ import org.testng.IRetryAnalyzer;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-// Class declaration that groups the related example logic in one place.
+// Retry analyzer that reruns failed tests up to a configured maximum count.
 public class Retry implements IRetryAnalyzer{
 
 	private int retryCount = 0;
@@ -12,13 +12,13 @@ public class Retry implements IRetryAnalyzer{
 
 	@Override
 	public boolean retry(ITestResult failed) {
-		// Check the condition before deciding whether this block should run.
+		// Retry only while maximum retry count has not been reached.
 		if (retryCount < maxRetryCount) {
 			retryCount++;
-			// Return the final result back to the caller.
+			// Return true so TestNG executes the failed test again.
 			return true;
 		}
-		// Return the final result back to the caller.
+		// Return false to stop retry attempts.
 		return false;
 	}
 }

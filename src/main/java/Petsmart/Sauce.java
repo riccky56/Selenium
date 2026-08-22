@@ -12,12 +12,13 @@ import org.testng.annotations.Test;
 
 import Base.Browser;
 
-// Class declaration that groups the related example logic in one place.
+// Contains login and logout validation scenarios for SauceDemo.
 public class Sauce extends Browser {
 
 
     @BeforeTest
 	public void start() {
+		// Start shared browser session once before running tests.
 		Browser.startBrowser();
 		//driver.navigate().to("https://www.saucedemo.com/v1/");
 		//driver.manage().deleteAllCookies();
@@ -36,18 +37,18 @@ public class Sauce extends Browser {
 		Thread.sleep(2000);
 
        	String A = driver.findElement(By.xpath("//*[@id = 'inventory_filter_container']")).getText();
-		// Display information to the console for the user.
+		// Print inventory label visible after successful login.
 		System.out.print(A);
-		// Store a true or false state needed for conditional logic.
+		// Track whether expected Products text is present.
 		boolean result = false;
-		// Check the condition before deciding whether this block should run.
+		// Mark success when heading contains Products.
 		if(A.contains("Products")) {
 			result = true;
 		}
 
 		Assert.assertEquals(true, result);
 
-		// Display information to the console for the user.
+		// Print completion marker for this test method.
 		System.out.println("A");
 		
 
@@ -75,11 +76,11 @@ public class Sauce extends Browser {
 		//driver.findElement(By.xpath("//a[@id= 'logout_sidebar_link']")).click();                                   
 		Thread.sleep(3000);
 		
-		// Store text data that will be processed by the program logic.
+		// Expected title after logout returns to login screen.
 		String expectedTitle = "Swag Labs";
-		// Store text data that will be processed by the program logic.
+		// Actual title after logout action.
 		String actualTitle = driver.getTitle();
-		// Display information to the console for the user.
+		// Print title for debug visibility.
 		System.out.println(actualTitle);
 		
 		Assert.assertEquals(actualTitle,expectedTitle);
@@ -110,11 +111,11 @@ public class Sauce extends Browser {
 		//driver.findElement(By.xpath("//a[@id= 'logout_sidebar_link']")).click();                                   
 		Thread.sleep(3000);
 		
-		// Store text data that will be processed by the program logic.
+		// Expected title after logout returns to login screen.
 		String expectedTitle = "Swag Labs";
-		// Store text data that will be processed by the program logic.
+		// Actual title after logout action.
 		String actualTitle = driver.getTitle();
-		// Display information to the console for the user.
+		// Print title for debug visibility.
 		System.out.println(actualTitle);
 		
 		Assert.assertEquals(actualTitle,expectedTitle);
@@ -129,6 +130,7 @@ public class Sauce extends Browser {
     @AfterTest
 	public void cleanupMethod(){
 
+		// Close browser session after all test methods complete.
 		driver.close();
 	}
 

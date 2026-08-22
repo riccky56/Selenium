@@ -6,10 +6,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-// Class declaration that groups the related example logic in one place.
+// Demonstrates locator usage for login failure, password reset, and login retry.
 public class Locators {
 	
-	// Main method where program execution starts.
+	// Execute complete locator practice workflow on sample login page.
 	public static void main(String[] args) throws InterruptedException {
 
 		WebDriver driver;
@@ -25,7 +25,7 @@ public class Locators {
 
 		driver.findElement(By.className("signInBtn")).click();
 
-		// Display information to the console for the user.
+		// Print error displayed for invalid credentials.
 		System.out.println(driver.findElement(By.cssSelector("p.error")).getText());
 
 		driver.findElement(By.linkText("Forgot your password?")).click();
@@ -44,7 +44,7 @@ public class Locators {
 
 		driver.findElement(By.cssSelector(".reset-pwd-btn")).click();
 
-		// Display information to the console for the user.
+		// Print temporary password message from reset flow.
 		System.out.println(driver.findElement(By.cssSelector("form p")).getText());
 
 		driver.findElement(By.xpath("//div[@class='forgot-pwd-btn-conainer']/button[1]")).click();

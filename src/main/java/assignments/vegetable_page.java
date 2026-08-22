@@ -8,11 +8,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-// Class declaration that groups the related example logic in one place.
+// Demonstrates selecting a specific set of vegetables and adding them to cart.
 public class vegetable_page {
 	public static WebDriver driver;
 
-	// Main method where program execution starts.
+	// Open product page, match required items, and click add-to-cart for each match.
 	public static void main(String[] args) throws InterruptedException {
 		driver=new ChromeDriver();
 
@@ -25,21 +25,21 @@ public class vegetable_page {
 
 		List<WebElement> products=driver.findElements(By.cssSelector("h4.product-name"));
 
-		// Loop through the data using an index or counter.
+		// Iterate through all displayed product name elements.
 		for(int i=0;i<products.size();i++)
 
 		{    
 			String[] name=products.get(i).getText().split("-");
 
-			// Store text data that will be processed by the program logic.
+			// Remove quantity suffix and keep only the vegetable name.
 			String formattedName=name[0].trim();
 
 	//format it to get actual vegetable name, convert array into array list for easy search, check whether name you extracted is present in arrayList or not-
 
 			List<String> itemsNeededList = Arrays.asList(itemsNeeded);
-			// Initialize a variable that will be used in the logic.
+			// Track how many required items have been added.
 			int j=0;
-			// Check the condition before deciding whether this block should run.
+			// Add to cart only when product is part of required list.
 			if(itemsNeededList.contains(formattedName))
 
 			{
@@ -49,7 +49,7 @@ public class vegetable_page {
 
 				driver.findElements(By.xpath("//div[@class='product-action']/button")).get(i).click();
 
-				// Check the condition before deciding whether this block should run.
+				// Stop early once all required items are added.
 				if(j==itemsNeeded.length)
 
 				{

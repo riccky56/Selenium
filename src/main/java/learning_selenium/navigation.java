@@ -6,16 +6,16 @@ import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 
-// Class declaration that groups the related example logic in one place.
+// Demonstrates XPath axis traversal and browser navigation APIs.
 public class navigation{
 	public static WebDriver driver;
 
-	// Main method where program execution starts.
+	// Print values using sibling and parent XPath relationships.
 	public static void main(String[] args) {
 
 		 driver = new ChromeDriver();
 
-		// Sibling - Child to parent traverse
+		// XPath axis examples for sibling and parent traversal.
 		//header/div/button[1]/following-sibling::button[1]
 
 		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
@@ -28,6 +28,7 @@ public class navigation{
 	
 	public void method2() {
 		
+		// Demonstrate navigate().to(), back(), and forward() usage.
 		driver.manage().window().maximize();
 
 		driver.get("http://google.com");

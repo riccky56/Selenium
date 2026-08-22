@@ -13,12 +13,13 @@ import org.testng.annotations.Test;
 
 import pagesfortest.Browsersetup;
 
-// Class declaration that groups the related example logic in one place.
+// Contains multiple SauceDemo test cases for login verification and logout validation.
 public class Sauce extends Browsersetup {
 
 
     @BeforeTest
 	public void start() {
+		// Launch the shared browser session before running the test methods.
     	Browsersetup.startBrowser();
 		//driver.navigate().to("https://www.saucedemo.com/v1/");
 		//driver.manage().deleteAllCookies();
@@ -32,6 +33,7 @@ public class Sauce extends Browsersetup {
 	public void LoginPage () throws InterruptedException {
 
 
+		// Enter valid credentials and sign in to the application.
 		driver.findElement(By.xpath("//input[@id = 'user-name']")).sendKeys("standard_user");
 		
 		driver.findElement(By.xpath("//input[@id = 'password']")).sendKeys("secret_sauce");
@@ -39,19 +41,21 @@ public class Sauce extends Browsersetup {
 		driver.findElement(By.xpath("//input[@id = 'login-button']")).click();
 		Thread.sleep(2000);
 
+		// Read the inventory page label that appears after a successful login.
        	String A = driver.findElement(By.xpath("//*[@id = 'inventory_filter_container']")).getText();
-		// Display information to the console for the user.
+		// Print the label so the successful navigation can be observed in the console.
 		System.out.print(A);
-		// Store a true or false state needed for conditional logic.
+		// Track whether the expected Products text is present.
 		boolean result = false;
-		// Check the condition before deciding whether this block should run.
+		// Mark the login as successful when the inventory heading contains Products.
 		if(A.contains("Products")) {
 			result = true;
 		}
 
+		// Assert that the login landed on the expected page.
 		Assert.assertEquals(true, result);
 
-		// Display information to the console for the user.
+		// Print a simple marker after the assertion completes.
 		System.out.println("A");
 		
 
@@ -62,15 +66,18 @@ public class Sauce extends Browsersetup {
 	public void secondtest () throws InterruptedException {
 
 
+		// Log in again so the logout flow can be tested.
 		driver.findElement(By.xpath("//input[@id = 'user-name']")).sendKeys("standard_user");
 		driver.findElement(By.xpath("//input[@id = 'password']")).sendKeys("secret_sauce");
 		driver.findElement(By.xpath("//input[@id = 'login-button']")).click();
 		Thread.sleep(2000);
+		// Open the side menu that contains the logout link.
 		driver.findElement(By.xpath("//button[text() = 'Open Menu']")).click();
 		
 	    Thread.sleep(2000);
 		
 			
+		// Wait until the logout link becomes clickable, then click it.
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@id= 'logout_sidebar_link']"))).click(); 
 		//click will also work here along with the wait but we can also take the click action in the next line. 
@@ -79,13 +86,14 @@ public class Sauce extends Browsersetup {
 		//driver.findElement(By.xpath("//a[@id= 'logout_sidebar_link']")).click();                                   
 		Thread.sleep(3000);
 		
-		// Store text data that will be processed by the program logic.
+		// Define the page title expected after logout returns the user to the login screen.
 		String expectedTitle = "Swag Labs";
-		// Store text data that will be processed by the program logic.
+		// Read the actual browser title after logout.
 		String actualTitle = driver.getTitle();
-		// Display information to the console for the user.
+		// Print the title so the post-logout state can be confirmed.
 		System.out.println(actualTitle);
 		
+		// Verify that logout returned the browser to the correct page.
 		Assert.assertEquals(actualTitle,expectedTitle);
 		//wait.until(ExpectedConditions.urlMatches("https://www.saucedemo.com/v1/index.html"));
 		
@@ -97,15 +105,18 @@ public class Sauce extends Browsersetup {
 	public void thirdtest () throws InterruptedException {
 
 
+		// Repeat the login and logout flow as another validation scenario.
 		driver.findElement(By.xpath("//input[@id = 'user-name']")).sendKeys("standard_user");
 		driver.findElement(By.xpath("//input[@id = 'password']")).sendKeys("secret_sauce");
 		driver.findElement(By.xpath("//input[@id = 'login-button']")).click();
 		Thread.sleep(2000);
+		// Open the application menu again.
 		driver.findElement(By.xpath("//button[text() = 'Open Menu']")).click();
 		
 	    Thread.sleep(2000);
 		
 			
+		// Wait for the logout link and click it when ready.
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@id= 'logout_sidebar_link']"))).click(); 
 		//click will also work here along with the wait but we can also take the click action in the next line. 
@@ -114,13 +125,14 @@ public class Sauce extends Browsersetup {
 		//driver.findElement(By.xpath("//a[@id= 'logout_sidebar_link']")).click();                                   
 		Thread.sleep(3000);
 		
-		// Store text data that will be processed by the program logic.
+		// Expected title after the user is logged out.
 		String expectedTitle = "Swag Labs";
-		// Store text data that will be processed by the program logic.
+		// Actual title read from the browser after logout.
 		String actualTitle = driver.getTitle();
-		// Display information to the console for the user.
+		// Print the title for visibility in the console output.
 		System.out.println(actualTitle);
 		
+		// Confirm that the page title matches the expected logged-out state.
 		Assert.assertEquals(actualTitle,expectedTitle);
 		//wait.until(ExpectedConditions.urlMatches("https://www.saucedemo.com/v1/index.html"));
 		
@@ -133,6 +145,7 @@ public class Sauce extends Browsersetup {
     @AfterClass
 	public void cleanupMethod(){
 
+		// Close the shared browser session after all tests are complete.
 		driver.close();
 	}
 

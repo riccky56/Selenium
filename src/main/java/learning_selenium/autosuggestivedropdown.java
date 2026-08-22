@@ -8,37 +8,29 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-// Class declaration that groups the related example logic in one place.
+// Demonstrates selecting a value from an auto-suggestion dropdown.
 public class autosuggestivedropdown {
 	public static WebDriver driver;
-	// Main method where program execution starts.
+	// Open the page, type partial text, and choose matching suggestion from list.
 	public static void main(String[] args) throws InterruptedException {
-		
-		
-
-		driver=new ChromeDriver();
+		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-	
+
 		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
 
 		driver.findElement(By.id("autosuggest")).sendKeys("ind");
-
 		Thread.sleep(3000);
 
-		List<WebElement> options = driver.findElements(By.cssSelector("li[class='ui-menu-item'] a")); //in css   "parent space child"
+		List<WebElement> options = driver.findElements(By.cssSelector("li[class='ui-menu-item'] a"));
 
-		// Loop through each element one by one.
-		for(WebElement option :options)
-		{
-			// Check the condition before deciding whether this block should run.
-			if(option.getText().equalsIgnoreCase("India"))
-			{
+		// Iterate through each suggestion and click the expected option.
+		for (WebElement option : options) {
+			if (option.getText().equalsIgnoreCase("India")) {
 				option.click();
-
-				break; // to come out of the loop once the condition is satisfied
+				break;
 			}
 		}
-		
+
 		driver.close();
 	}
 }

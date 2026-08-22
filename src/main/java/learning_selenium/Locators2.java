@@ -14,19 +14,19 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import org.testng.Assert;
-// Class declaration that groups the related example logic in one place.
+// Demonstrates extracting temporary password and validating successful login.
 public class Locators2 {
-	// Main method where program execution starts.
+	// Fetch dynamic password, sign in, and assert welcome messages.
 	public static void main(String[] args) throws InterruptedException {
 
-		// Store text data that will be processed by the program logic.
+		// User name reused for both login and assertion text.
 		String name = "rahul";
 
 		WebDriver driver = new ChromeDriver();
 
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
-		// Store text data that will be processed by the program logic.
+		// Obtain temporary password by invoking reset flow helper method.
 		String password = getPassword(driver);
 
 		driver.get("https://rahulshettyacademy.com/locatorspractice/");
@@ -39,7 +39,7 @@ public class Locators2 {
 
 		Thread.sleep(2000);
 
-		// Display information to the console for the user.
+		// Print success message after login.
 		System.out.println(driver.findElement(By.tagName("p")).getText());
 
 		Assert.assertEquals(driver.findElement(By.tagName("p")).getText(), "You are successfully logged in.");
@@ -51,7 +51,7 @@ public class Locators2 {
 		driver.close();
 
 	}
-	//method to extract the dynamic password
+	// Helper to parse temporary password from reset message.
 
 	public static String getPassword(WebDriver driver) throws InterruptedException{
 
@@ -63,7 +63,7 @@ public class Locators2 {
 
 		driver.findElement(By.cssSelector(".reset-pwd-btn")).click();
 
-		// Store text data that will be processed by the program logic.
+		// Example text includes password between single quotes.
 		String passwordText =driver.findElement(By.cssSelector("form p")).getText();
 
 		//Please use temporary password 'rahulshettyacademy' to Login.
@@ -75,7 +75,7 @@ public class Locators2 {
 
 		String password = passwordArray[1].split("'")[0];
 
-		// Return the final result back to the caller.
+		// Return parsed password token.
 		return password;
 
 		//0th index - Please use temporary password

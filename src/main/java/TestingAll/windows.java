@@ -12,55 +12,55 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver; 
 import org.openqa.selenium.interactions.Actions; 
 
-// Class declaration that groups the related example logic in one place.
+// Demonstrates handling parent/child browser windows and switching focus between them.
 public class windows {
 
-	// Main method where program execution starts.
+	// Open a site, trigger a new window, switch context, and return to parent window.
 	public static void main(String[] args) throws Exception {
 
-		// Step 1: Open LinkedIn login page
+		// Open Cambridge site and prepare for social-link window handling.
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.cambridgeinternational.org/");
 		
 		driver.manage().window().maximize();
-		//to accept the cookie
+		// Accept cookie banner so the page becomes fully interactive.
 		driver.findElement(By.className("cc-cookie-accept")).click();
 		
 		
-		// Step 2: Store the parent window handle
+		// Save the parent window handle for switching back later.
 		String parentWindow = driver.getWindowHandle();
-		// Display information to the console for the user.
+		// Print parent handle for debug visibility.
 		System.out.println("Parent Window Handle: " + parentWindow);
 		Thread.sleep(2000);
 		
 		
-		// Step 3: Click on the "Sign in with Google" button
+		// Click LinkedIn icon which opens a new browser window/tab.
 		driver.findElement(By.xpath("//a[@title='Linkedin']/img")).click();
 		
 
-		// Step 4: Get all window handles
+		// Read all current window handles after new window opens.
 		Set<String> allWindows = driver.getWindowHandles();
-		// Display information to the console for the user.
+		// Print all handles for troubleshooting.
 		System.out.println("All Window Handles: " + allWindows);
 		List<String> list = new ArrayList<String>(allWindows);
 	
 		driver.switchTo().window(list.get(1));
-		// Display information to the console for the user.
+		// Confirm that execution switched to the secondary window.
 		System.out.println("Switched to LinkedIn Login Window");
         Thread.sleep(2000);
         
 
-		// Step 5: Iterate through the window handles and switch to the child window (Google login window)
+		// Iterate through handles and switch to the child window that is not the parent.
         for (String windowHandle : allWindows) {
-            // Check the condition before deciding whether this block should run.
+	            // Skip the parent and interact only with child context.
             if (!windowHandle.equals(parentWindow)) {
-                // Switch to Linkedin login window
+	                // Switch to child window.
                 driver.switchTo().window(windowHandle);
-                // Display information to the console for the user.
+	                // Print current context change for debug.
                 System.out.println("Switched to LinkedIn Login Window");
                 Thread.sleep(2000);
                 
-               // Step 6: Perform actions in the Google login window (e.g., enter email and password)
+	               // Example interaction attempt in child window.
                 driver.findElement(By.id("identifierId")).sendKeys("your-email@gmail.com");
                 driver.findElement(By.xpath("//span[text()='Next']")).click();
                 
@@ -69,9 +69,9 @@ public class windows {
             }
         }
 
-		// Step 7: After completing the Google login, switch back to the LinkedIn window
+		// Return focus to the parent window after child actions complete.
 		driver.switchTo().window(parentWindow);
-		// Display information to the console for the user.
+		// Confirm switch-back and close all windows.
 		System.out.println("Switched back to Parent Window");
 		driver.quit();
 	}

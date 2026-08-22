@@ -5,31 +5,35 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-// Class declaration that groups the related example logic in one place.
+// Demonstrates how to read values from an HTML table and filter rows by author name.
 public class table {
 WebDriver driver;
-	// Main method where program execution starts.
+  // Open the demo page, inspect the table structure, and print book data for a selected author.
 	public static void main(String[] args) {
 	 WebDriver driver = new ChromeDriver();
 		
+     // Open the practice page that contains the sample book table.
 	 driver.get("https://testautomationpractice.blogspot.com");
 	 driver.manage().window().maximize();
+    // Count the table rows, including the header row.
 		int rows = driver.findElements(By.xpath("//table[@name='BookTable']//tr")).size();
+    // Count the number of header columns in the table.
 		int columns = driver.findElements(By.xpath("//table[@name='BookTable']//th")).size();
-         // Display information to the console for the user.
+         // Print the row count so the table structure can be verified.
          System.out.println(rows);
-         // Display information to the console for the user.
+         // Print the column count for reference.
          System.out.println(columns);
          try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+      // Print the exception details if the sleep is interrupted.
 			e.printStackTrace();
 		}
+     // Read the first cell value from the third row as a simple sample lookup.
          WebElement textone = driver.findElement(By.xpath("//table[@name='BookTable']//tr[3]/td[1]"));
-         // Store text data that will be processed by the program logic.
+         // Store the extracted cell text for reuse and display.
          String data = textone.getText();
-         // Display information to the console for the user.
+         // Print the sample table value.
          System.out.println(data);
          
         /* for(int r=2; r<rows;r++) 
@@ -45,18 +49,20 @@ WebDriver driver;
         	 System.out.println();
          } */
          
-         // Loop through the data using an index or counter.
+         // Loop through the data rows, skipping the header row at index 1.
          for(int r=2; r<rows;r++) 
          {
+	        	 // Read the author name from the second column of the current row.
         	 String authorname = driver.findElement(By.xpath("//table[@name='BookTable']//tr["+r+"]/td[2]")).getText();
-        	 // Check the condition before deciding whether this block should run.
+	         // Print only the rows whose author matches Mukesh.
         	 if(authorname.equalsIgnoreCase("Mukesh"))
         	 {
+	        		 // Read the book name from the first column of the matching row.
         		 String bookname = driver.findElement(By.xpath("//table[@name='BookTable']//tr["+r+"]/td[1]")).getText();
-        	      // Display information to the console for the user.
+	         	      // Print the matching book and author pair.
         	      System.out.print(bookname+ "\t" +authorname);
         	 }
-        	 // Display information to the console for the user.
+	         // Move to the next output line after processing each row.
         	 System.out.println();
          }
          

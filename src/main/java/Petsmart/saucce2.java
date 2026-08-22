@@ -14,11 +14,12 @@ import org.testng.annotations.Test;
 
 import Base.Browser;
 
-// Class declaration that groups the related example logic in one place.
+// Single retry-enabled SauceDemo logout test scenario.
 public class saucce2 extends Browser {
 
 	@BeforeClass
 	public void setup() {
+		// Start browser before executing class tests.
 		Browser.startBrowser();
 	}
 
@@ -44,11 +45,11 @@ public class saucce2 extends Browser {
 		//driver.findElement(By.xpath("//a[@id= 'logout_sidebar_link']")).click();                                   
 		Thread.sleep(3000);
 
-		// Store text data that will be processed by the program logic.
+		// Expected title after logout.
 		String expectedTitle = "Swag Labs";
-		// Store text data that will be processed by the program logic.
+		// Actual title shown after logout.
 		String actualTitle = driver.getTitle();
-		// Display information to the console for the user.
+		// Print title for troubleshooting.
 		System.out.println(actualTitle);
 
 		Assert.assertEquals(actualTitle,expectedTitle);
@@ -57,6 +58,7 @@ public class saucce2 extends Browser {
 	
 		@AfterTest
 		public  void teardn(){
+		// Close browser after test completion.
 		driver.close();
 		}
 		

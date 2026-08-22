@@ -12,10 +12,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-// Class declaration that groups the related example logic in one place.
+// Demonstrates implicit and explicit waits while adding items and applying promo code.
 public class waitsdemo {
 	public static  WebDriver driver;
-	// Main method where program execution starts.
+	// Open product page, add required items, proceed to checkout, and verify promo response.
 	public static void main(String[] args) throws InterruptedException {
 
 		WebDriver driver=new ChromeDriver();
@@ -44,27 +44,27 @@ public class waitsdemo {
 
 		driver.findElement(By.cssSelector("button.promoBtn")).click();
 
-		//explicit wait
+		// Explicit wait ensures promo response element becomes visible before reading text.
 
 		w.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("span.promoInfo")));
 
-		// Display information to the console for the user.
+		// Print promo application result for verification.
 		System.out.println(driver.findElement(By.cssSelector("span.promoInfo")).getText());
 
 	}
 
 
 
-	// Helper method used to perform a specific part of the program logic.
+	// Reusable helper that adds only the requested items from the product list.
 	public static  void addItems(WebDriver driver,String[] itemsNeeded)
 
 	{
-		// Initialize a variable that will be used in the logic.
+		// Count how many required items have been added.
 		int j=0;
 
 		List<WebElement> products=driver.findElements(By.cssSelector("h4.product-name"));
 
-		// Loop through the data using an index or counter.
+		// Iterate through each product tile name.
 		for(int i=0;i<products.size();i++)
 
 		{
@@ -74,7 +74,7 @@ public class waitsdemo {
 
 			String[] name=products.get(i).getText().split("-");
 
-			// Store text data that will be processed by the program logic.
+			// Keep only product name by trimming quantity suffix.
 			String formattedName=name[0].trim();
 
 
@@ -84,7 +84,7 @@ public class waitsdemo {
 
 			List itemsNeededList = Arrays.asList(itemsNeeded);
 
-			// Check the condition before deciding whether this block should run.
+			// Add to cart when current product is in requested list.
 			if(itemsNeededList.contains(formattedName))
 
 			{
@@ -93,7 +93,7 @@ public class waitsdemo {
 
 				driver.findElements(By.xpath("//div[@class='product-action']/button")).get(i).click();
 
-				// Check the condition before deciding whether this block should run.
+				// Exit loop once all target items are added.
 				if(j==itemsNeeded.length)
 
 				{

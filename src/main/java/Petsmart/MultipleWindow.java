@@ -10,40 +10,40 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver; 
 import org.openqa.selenium.interactions.Actions; 
 
-// Class declaration that groups the related example logic in one place.
+// Demonstrates handling parent/child windows opened from a social link.
 public class MultipleWindow {
 
-	// Main method where program execution starts.
+	// Open main site, switch to child window, perform action, then return to parent.
 	public static void main(String[] args) throws Exception {
 
-		// Step 1: Open LinkedIn login page
+		// Open main website and accept cookie prompt.
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.cambridgeinternational.org/");
 		driver.findElement(By.className("cc-cookie-accept")).click();
-		// Step 2: Store the parent window handle
+		// Save parent handle for returning after child-window interactions.
 		String parentWindow = driver.getWindowHandle();
-		// Display information to the console for the user.
+		// Print parent handle for debugging.
 		System.out.println("Parent Window Handle: " + parentWindow);
 		Thread.sleep(2000);
-		// Step 3: Click on the "Sign in with Google" button
+		// Open LinkedIn page in a new window/tab.
 		driver.findElement(By.xpath("//a[@title='Linkedin']/img")).click();
 
-		// Step 4: Get all window handles
+		// Capture all handles after child window opens.
 		Set<String> allWindowHandles = driver.getWindowHandles();
-		// Display information to the console for the user.
+		// Print all handles to verify window creation.
 		System.out.println("All Window Handles: " + allWindowHandles);
 
-		// Step 5: Iterate through the window handles and switch to the child window (Google login window)
+		// Switch to child handle that is different from parent.
 		for (String windowHandle : allWindowHandles) {
-			// Check the condition before deciding whether this block should run.
+			// Skip parent and act on child window only.
 			if (!windowHandle.equals(parentWindow)) {
-				// Switch to Linkedin login window
+				// Move browser context to child window.
 				driver.switchTo().window(windowHandle);
-				// Display information to the console for the user.
+				// Confirm child context switch.
 				System.out.println("Switched to LinkedIn Login Window");
 				Thread.sleep(2000);
 
-				// Step 6: Perform actions in the Google login window (e.g., enter email and password)
+				// Attempt sample input in child login flow.
 				driver.findElement(By.xpath("//*[@class='nsm7Bb-HzV7m-LgbsSe-MJoBVe'])[2]")).sendKeys("rahulraftaar885@gmail.com");
 				driver.findElement(By.xpath("//span[text()='Next']")).click();
 
@@ -52,9 +52,9 @@ public class MultipleWindow {
 			}
 		}
 
-		// Step 7: After completing the Google login, switch back to the LinkedIn window
+		// Return to parent window and finish.
 		driver.switchTo().window(parentWindow);
-		// Display information to the console for the user.
+		// Confirm switch back to parent context.
 		System.out.println("Switched back to Parent Window");
 		driver.quit();
 	}

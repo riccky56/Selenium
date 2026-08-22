@@ -3,17 +3,19 @@ package Base;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-// Class declaration that groups the related example logic in one place.
+// Provides a shared helper to launch the browser and open the SauceDemo application.
 public class Browser {
 	
 	public static WebDriver driver;
 	
 	
-	// Helper method used to perform a specific part of the program logic.
+	// Start a Chrome session, navigate to the login page, and prepare the browser for testing.
 	public static void startBrowser(){
 	driver = new ChromeDriver();
 	driver.get("https://www.saucedemo.com/v1/");
+	// Maximize the browser so all elements are fully visible during the test run.
 	driver.manage().window().maximize();
+	// Clear cookies to ensure the session starts in a clean state.
 	driver.manage().deleteAllCookies();
 	}
 }

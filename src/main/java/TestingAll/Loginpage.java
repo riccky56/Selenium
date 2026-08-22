@@ -9,12 +9,13 @@ import org.testng.annotations.Test;
 
 import SeleniumTutorial.Learning.Browser;
 
-// Class declaration that groups the related example logic in one place.
+// Sample TestNG class showing setup/teardown and basic test method structure.
 public class Loginpage extends Browser {
 
 	@BeforeTest
 	
 	public void start() {
+		// Start browser once before executing test methods in this class.
 		Browser.startBrowser();
 		//driver.get("https://www.google.com");
 		//driver.manage().window().maximize();
@@ -28,13 +29,13 @@ public class Loginpage extends Browser {
 	@Test(priority=1,description="this is atest method")
 	public void Name2()
 	{
-		// Display information to the console for the user.
+		// Placeholder test body for execution-order demonstration.
 		System.out.println("this is a test");
 	}
 	
 	@Test(dataProvider = "loginData")
 	public void Name3() {
-		// Display information to the console for the user.
+		// Placeholder data-driven test body.
 		System.out.println("username");
 		
 	}
@@ -50,6 +51,7 @@ public class Loginpage extends Browser {
 	@AfterTest
 
 	public void close() {
+		// Close browser after all tests in this class complete.
 		driver.close();
 	 }
 }

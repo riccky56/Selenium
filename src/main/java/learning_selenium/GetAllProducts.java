@@ -10,10 +10,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-// Class declaration that groups the related example logic in one place.
+// Demonstrates capturing all product cards and printing their title/price.
 public class GetAllProducts {
 
-	// Main method where program execution starts.
+	// Open product catalog, wait for cards, then print title and price for each item.
 	public static void main(String[] args) {
 
 		WebDriver driver = new ChromeDriver();
@@ -27,25 +27,25 @@ public class GetAllProducts {
 
 		List<WebElement> products = driver.findElements(By.className("shelf-item"));
 
-		// Display information to the console for the user.
+		// Print raw product element list reference.
 		System.out.println(products);
 
-		// Display information to the console for the user.
+		// Print total number of products found.
 		System.out.println("Total products found : " + products.size());
 
-		// Loop through each element one by one.
+		// Iterate each product card and extract fields.
 		for (WebElement product : products) {
 
-			// Store text data that will be processed by the program logic.
+			// Product title text.
 			String title = product.findElement(By.className("shelf-item__title")).getText();
 
 			
 		
-			// Store text data that will be processed by the program logic.
+			// Product price numeric value.
 			String price = product.findElement(By.cssSelector(".shelf-item__price .val b")).getText();
 		
 
-			// Display information to the console for the user.
+			// Print product summary line.
 			System.out.println("Phone is " + title + " and price is: " + price);
 
 		}

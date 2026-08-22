@@ -15,7 +15,7 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-// Class declaration that groups the related example logic in one place.
+// Utility class for reading/writing Excel data and applying cell background colors.
 public class ExcelUtility {
 
 	public FileInputStream fi;
@@ -37,11 +37,11 @@ public class ExcelUtility {
 		fi=new FileInputStream(path);
 		workbook=new XSSFWorkbook(fi);
 		sheet=workbook.getSheet(sheetName);
-		// Initialize a variable that will be used in the logic.
+		// Last row index is zero-based and useful for loop boundaries.
 		int rowcount=sheet.getLastRowNum();
 		workbook.close();
 		fi.close();
-		// Return the final result back to the caller.
+		// Return the last used row index.
 		return rowcount;		
 	}
 	
@@ -51,11 +51,11 @@ public class ExcelUtility {
 		workbook=new XSSFWorkbook(fi);
 		sheet=workbook.getSheet(sheetName);
 		row=sheet.getRow(rownum);
-		// Initialize a variable that will be used in the logic.
+		// Last cell number represents the total cell count for this row.
 		int cellcount=row.getLastCellNum();
 		workbook.close();
 		fi.close();
-		// Return the final result back to the caller.
+		// Return cell count for caller-side iteration.
 		return cellcount;
 	}
 	
@@ -79,14 +79,14 @@ public class ExcelUtility {
 		}
 		workbook.close();
 		fi.close();
-		// Return the final result back to the caller.
+		// Return formatted value so callers can treat all cell types as text.
 		return data;
 	}
 	
 	public void setCellData(String sheetName,int rownum,int colnum,String data) throws IOException
 	{
 		File xlfile=new File(path);
-		if(!xlfile.exists())    // If file not exists then create new file
+		if(!xlfile.exists())    // Create workbook file when path does not exist.
 		{
 		workbook=new XSSFWorkbook();
 		fo=new FileOutputStream(path);
@@ -96,11 +96,11 @@ public class ExcelUtility {
 		fi=new FileInputStream(path);
 		workbook=new XSSFWorkbook(fi);
 			
-		if(workbook.getSheetIndex(sheetName)==-1) // If sheet not exists then create new Sheet
+		if(workbook.getSheetIndex(sheetName)==-1) // Create target sheet when missing.
 			workbook.createSheet(sheetName);
 		sheet=workbook.getSheet(sheetName);
 					
-		if(sheet.getRow(rownum)==null)   // If row not exists then create new Row
+		if(sheet.getRow(rownum)==null)   // Create target row when missing.
 				sheet.createRow(rownum);
 		row=sheet.getRow(rownum);
 		

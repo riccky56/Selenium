@@ -7,11 +7,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-// Class declaration that groups the related example logic in one place.
+// Demonstrates completing the Angular practice form using Selenium interactions.
 public class assignment1 {
 	public static WebDriver driver;
 
-	// Main method where program execution starts.
+	// Launch the page, fill each form field, and submit the form.
 	public static void main(String[] args) {
 		
 		driver = new ChromeDriver();
@@ -24,6 +24,7 @@ public class assignment1 {
 
 		driver.findElement(By.cssSelector("input[id='exampleInputPassword1']")).sendKeys("0987654321");
 
+		// Scroll down so lower form controls are visible before interaction.
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		
 		js.executeScript("window.scrollBy(0,500)");
@@ -31,13 +32,14 @@ public class assignment1 {
 		driver.findElement(By.cssSelector("input[id='exampleCheck1']")).click();
 		
 
+		// Locate and wrap the static dropdown with Select helper.
 		WebElement staticdropdown = driver.findElement(By.xpath("//select[@id='exampleFormControlSelect1']"));
 
 		Select drop = new Select(staticdropdown);
 
 		drop.selectByIndex(1);
 
-		// Display information to the console for the user.
+		// Print selected dropdown value for quick verification.
 		System.out.println(drop.getFirstSelectedOption().getText());
 
 		driver.findElement(By.cssSelector("input[value='option2']")).click();

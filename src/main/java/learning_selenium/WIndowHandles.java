@@ -6,12 +6,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-// Class declaration that groups the related example logic in one place.
+// Demonstrates switching between parent/child windows and reusing child-window data.
 public class WIndowHandles {
  
 	 public static WebDriver driver;
 	
-	// Main method where program execution starts.
+	// Open child window, read email text, and send extracted value back in parent window.
 	public static void main(String[] args) {
 		
 		WebDriver driver = new ChromeDriver();
@@ -24,20 +24,20 @@ public class WIndowHandles {
 
 		Iterator<String>it = windows.iterator();
 
-		// Store text data that will be processed by the program logic.
+		// Parent window handle.
 		String parentId = it.next();
 
-		// Store text data that will be processed by the program logic.
+		// Child window handle.
 		String childId = it.next();
 
 		driver.switchTo().window(childId);
 
-		// Display information to the console for the user.
+		// Print text shown in child window.
 		System.out.println(driver.findElement(By.cssSelector(".im-para.red")).getText());
 
 		driver.findElement(By.cssSelector(".im-para.red")).getText();
 
-		// Store text data that will be processed by the program logic.
+		// Parse email from info text.
 		String emailId= driver.findElement(By.cssSelector(".im-para.red")).getText().split("at")[1].trim().split(" ")[0];
 
 		driver.switchTo().window(parentId);

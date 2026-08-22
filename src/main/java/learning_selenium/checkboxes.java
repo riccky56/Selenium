@@ -7,10 +7,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-// Class declaration that groups the related example logic in one place.
+// Demonstrates selecting checkbox groups using a collected list of elements.
 public class checkboxes {
 	public static WebDriver driver;
-	// Main method where program execution starts.
+	// Open page, select all checkboxes, then click a subset by index range.
 	public static void main(String[] args) {
 		
 		 driver= new ChromeDriver();
@@ -20,15 +20,15 @@ public class checkboxes {
 		 
 		// driver.findElement(By.xpath("//input[@id='sunday']")).click();
 		 
-		 // 2. select all checkboxes
+		 // Collect all matching checkbox elements.
 		List<WebElement> allcheckboxes = driver.findElements(By.xpath("//input[@class='form-check-input' and @type='checkbox']"));
 		 
-		// Loop through each element one by one.
+		// Click each checkbox once.
 		for(WebElement a:allcheckboxes) {
 			a.click();
 		}
 		
-		//3. select 3 last checkboxes
+		// Click the last three checkboxes using index positions.
 		for(int i = 4; i<allcheckboxes.size(); i++)
 		{
 			allcheckboxes.get(i).click();

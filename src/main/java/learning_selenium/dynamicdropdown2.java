@@ -4,18 +4,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-// Class declaration that groups the related example logic in one place.
+// Demonstrates selecting origin and destination values from dynamic flight dropdowns.
 public class dynamicdropdown2 {
 	public static WebDriver driver;
 
-	// Main method where program execution starts.
+	// Choose source city, destination city, and current highlighted date.
 	public static void main(String[] args) throws InterruptedException {
 
 		driver =new ChromeDriver();
 
-		driver.get("http://spicejet.com"); //URL in the browser
+		driver.get("http://spicejet.com");
 
-		//  //a[@value='MAA']  - Xpath for chennai		//  //a[@value='BLR']
+		// Example value xpaths: BLR for Bangalore and MAA for Chennai.
 
 
 		driver.findElement(By.id("ctl00_mainContent_ddl_originStation1_CTXT")).click();

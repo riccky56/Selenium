@@ -6,14 +6,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.BeforeTest;
 
-// Class declaration that groups the related example logic in one place.
+// Provides a shared browser setup method for tests that run against the SauceDemo site.
 public class Browsersetup {
 
 
 	public static WebDriver driver;
 
 
-	// Helper method used to perform a specific part of the program logic.
+	// Start the browser, open the application, and prepare a clean session for test execution.
 	public static void startBrowser(){
 		driver = new ChromeDriver();
 
@@ -22,8 +22,11 @@ public class Browsersetup {
 		//driver = new EdgeDriver();
 		
 	
+		// Open the SauceDemo login page.
 		driver.get("https://www.saucedemo.com/");
+		// Maximize the browser so page elements are fully visible.
 		driver.manage().window().maximize();
+		// Clear cookies to avoid reusing state from earlier runs.
 		driver.manage().deleteAllCookies();
 	}
 }

@@ -10,49 +10,49 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver; 
 import org.openqa.selenium.interactions.Actions; 
 
-// Class declaration that groups the related example logic in one place.
+// Demonstrates switching between parent and child windows during LinkedIn Google sign-in flow.
 public class window {
 
-	// Main method where program execution starts.
+	// Open LinkedIn, switch to the Google sign-in window, perform an action, then return to parent.
 	public static void main(String[] args) throws Exception {
 
-		// Step 1: Open LinkedIn login page
+		// Open LinkedIn login page.
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.linkedin.com/login");
 
-		// Step 2: Store the parent window handle
+		// Save parent window handle to switch back later.
 		String parentWindow = driver.getWindowHandle();
-		// Display information to the console for the user.
+		// Print parent handle for debugging.
 		System.out.println("Parent Window Handle: " + parentWindow);
 
-		// Step 3: Click on the "Sign in with Google" button
+		// Click Sign in with Google to open child window.
 		driver.findElement(By.xpath("//button[text()='Sign in with Google']")).click();
 
-		// Step 4: Get all window handles
+		// Read all available window handles after popup opens.
 		Set<String> allWindowHandles = driver.getWindowHandles();
-		// Display information to the console for the user.
+		// Print all handles for visibility.
 		System.out.println("All Window Handles: " + allWindowHandles);
-         		// Step 5: Iterate through the window handles and switch to the child window (Google login window)
+	         		// Switch to the child window by selecting handle that is not the parent.
 		for (String windowHandle : allWindowHandles) {
-			// Check the condition before deciding whether this block should run.
+			// Skip parent handle and switch only when child handle is found.
 			if (!windowHandle.equals(parentWindow)) {
-				// Switch to Google login window
+				// Switch browser focus to Google login window.
 				driver.switchTo().window(windowHandle);
-				// Display information to the console for the user.
+				// Confirm active context change.
 				System.out.println("Switched to Google Login Window");
 
-				// Step 6: Perform actions in the Google login window (e.g., enter email and password)
+				// Enter email and proceed to next step in Google login.
 				driver.findElement(By.id("identifierId")).sendKeys("rahulraftaar885@gmail.com");
 				driver.findElement(By.xpath("//span[text()='Next']")).click();
 
-				// Assuming you have a wait to handle loading and next steps, you would perform further login steps here
+				// Stop after completing first child-window action.
 				break;
 			}
 		}
 
-		// Step 7: After completing the Google login, switch back to the LinkedIn window
+		// Return control back to LinkedIn parent window.
 		driver.switchTo().window(parentWindow);
-		// Display information to the console for the user.
+		// Confirm successful switch back.
 		System.out.println("Switched back to Parent Window");
 	}
 }
