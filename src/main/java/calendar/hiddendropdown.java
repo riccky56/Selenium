@@ -8,53 +8,61 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-// Class declaration that groups the related example logic in one place.
+// Demonstrates how to handle a custom dropdown in OrangeHRM and read all available options.
 public class hiddendropdown {
 	public static WebDriver driver;
-	// Main method where program execution starts.
+	// Log in to OrangeHRM, open a custom dropdown, print its options, and select a matching entry.
 	public static void main(String[] args) throws InterruptedException {
 
+		// Launch the browser and maximize the window for easier interaction.
 		driver = new ChromeDriver(); driver.manage().window().maximize();
+		// Open the OrangeHRM login page.
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php");
 		Thread.sleep(2000);
+		// Enter the demo user name.
 		driver.findElement(By.xpath("//*[@name='username']")).sendKeys("Admin");
+		// Enter the demo password.
 		driver.findElement(By.xpath("//*[@name='password']")).sendKeys("admin123");
 		// driver.findElement(By.xpath("//button[@type='submit']")).click();
+		// Submit the login form.
 		driver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
 		Thread.sleep(3000);
-		//click on PIM
+		// Navigate to the PIM module after logging in.
 		driver.findElement(By.xpath("//span[normalize-space()='PIM']")).click();
 
-		//clickondropdown
+		// Open the custom dropdown whose options are rendered dynamically.
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("(//*[@class='oxd-select-text--after']/child::i)[3]")).click();
 
+		// Capture all visible dropdown options from the listbox.
 		List <WebElement> alloptions = driver.findElements(By.xpath("//*[@role='listbox']/div"));
 
-		ArrayList suggestionscreen = new ArrayList();             //store the webelements in the arraylist 
+		// Store the option text values in a separate list so they can be printed and counted easily.
+		ArrayList suggestionscreen = new ArrayList();
 
-		for( WebElement option : alloptions)               //iterate for every element get the text and add in the list
+		// Read each dropdown option and add its text to the list.
+		for( WebElement option : alloptions)
 		{
-			// Add the current value into the collection.
 			suggestionscreen.add(option.getText());
 
 		}
 		
-		// Display information to the console for the user.
+		// Print all dropdown values collected from the custom list.
 		System.out.println(suggestionscreen);
-		// Display information to the console for the user.
+		// Print how many options were available in the dropdown.
 		System.out.println(suggestionscreen.size());
 
-		for(WebElement a:alloptions) // to print all items from list of suggestion
+		// Loop through the original option elements so the required one can be clicked.
+		for(WebElement a:alloptions)
 		{
-			// Store text data that will be processed by the program logic.
+			// Read the visible text of the current dropdown item.
 			String option = a.getText();
 			
-			// Check the condition before deciding whether this block should run.
+			// Click the option when its text matches the required role.
 			if(option.matches("Automation_Tester")) {
 				a.click();
 			}
-			// Display information to the console for the user.
+			// Print each option while iterating so the dropdown contents can be reviewed.
 			System.out.println(option);
 		}
 

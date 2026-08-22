@@ -5,52 +5,62 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-// Class declaration that groups the related example logic in one place.
+// Demonstrates how to work with JavaScript alerts, confirm popups, a new tab, and basic authentication.
 public class alerts {
 	static WebDriver driver;
-	// Main method where program execution starts.
+	// Launch the browser, trigger different popup types, and handle each one step by step.
 	public static void main(String[] args) {
 	
-		// Store text data that will be processed by the program logic.
+		// This text is entered into the page so it appears inside the alert messages.
 		String text="Rahul";
 		
 		driver = new ChromeDriver();
   
 		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
 
+		// Type the sample name that will be echoed inside the alert popup.
 		driver.findElement(By.id("name")).sendKeys(text);
 
+		// Trigger the normal JavaScript alert.
 		driver.findElement(By.cssSelector("[id='alertbtn']")).click();
 
-		// Display information to the console for the user.
+		// Print the alert text so we can confirm the popup contains the expected message.
 		System.out.println(driver.switchTo().alert().getText());
 
+		// Accept the alert to close it.
 		driver.switchTo().alert().accept();
 
+		// Trigger the confirm dialog, which supports both OK and Cancel actions.
 		driver.findElement(By.id("confirmbtn")).click();
 
-		// Display information to the console for the user.
+		// Print the confirmation text before dismissing the dialog.
 		System.out.println(driver.switchTo().alert().getText());
 
+		// Dismiss the confirm popup to simulate clicking Cancel.
 		driver.switchTo().alert().dismiss();
 		
+		// Open a separate browser tab to demonstrate handling a different kind of authentication popup.
 		driver.switchTo().newWindow(WindowType.TAB);
 		
 		
-		//Authetication POPUP
+		// Open the basic-auth demo site once without credentials.
 		driver.get("http://the-internet.herokuapp.com/basic_auth");
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+			// Print the interruption details if the pause is interrupted.
 			e.printStackTrace();
 		}
-		//  to open a new window tab in selenium == driver.switchTo().newWindow(WindowType.TAB);
-		//syntax
+		// Example syntax for opening a new tab in Selenium.
+		//driver.switchTo().newWindow(WindowType.TAB);
+		
+		// Basic authentication syntax:
 		//http://username:password@ url ;
 		
+		// Example with embedded credentials for this demo application.
 		//http://admin:admin@the-internet.herokuapp.com/basic_auth;
 			
+		// Reload the page with credentials embedded in the URL to bypass the authentication prompt.
        driver.get("http://admin:admin@the-internet.herokuapp.com/basic_auth");
 	}
 
