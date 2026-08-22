@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+// Class declaration that groups the related example logic in one place.
 public class loginpage {	
 
 	//constructor

@@ -14,15 +14,19 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import org.testng.Assert;
+// Class declaration that groups the related example logic in one place.
 public class Locators2 {
+	// Main method where program execution starts.
 	public static void main(String[] args) throws InterruptedException {
 
+		// Store text data that will be processed by the program logic.
 		String name = "rahul";
 
 		WebDriver driver = new ChromeDriver();
 
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
+		// Store text data that will be processed by the program logic.
 		String password = getPassword(driver);
 
 		driver.get("https://rahulshettyacademy.com/locatorspractice/");
@@ -35,6 +39,7 @@ public class Locators2 {
 
 		Thread.sleep(2000);
 
+		// Display information to the console for the user.
 		System.out.println(driver.findElement(By.tagName("p")).getText());
 
 		Assert.assertEquals(driver.findElement(By.tagName("p")).getText(), "You are successfully logged in.");
@@ -58,6 +63,7 @@ public class Locators2 {
 
 		driver.findElement(By.cssSelector(".reset-pwd-btn")).click();
 
+		// Store text data that will be processed by the program logic.
 		String passwordText =driver.findElement(By.cssSelector("form p")).getText();
 
 		//Please use temporary password 'rahulshettyacademy' to Login.
@@ -69,6 +75,7 @@ public class Locators2 {
 
 		String password = passwordArray[1].split("'")[0];
 
+		// Return the final result back to the caller.
 		return password;
 
 		//0th index - Please use temporary password

@@ -7,10 +7,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
+// Class declaration that groups the related example logic in one place.
 public class dropdown {
 	public static WebDriver driver;
 
 	@Test
+	// Helper method used to perform a specific part of the program logic.
 	public static void one() throws InterruptedException {
 
 
@@ -22,12 +24,15 @@ public class dropdown {
 		//Staticdropdown.click();
 		Select dropdown = new Select(Staticdropdown);
 		dropdown.selectByIndex(2);
+		// Display information to the console for the user.
 		System.out.println(dropdown.getFirstSelectedOption().getText());
 
 		dropdown.selectByVisibleText("INR");
+		// Display information to the console for the user.
 		System.out.println(dropdown.getFirstSelectedOption().getText());
 
 		dropdown.selectByValue("USD");
+		// Display information to the console for the user.
 		System.out.println(dropdown.getFirstSelectedOption().getText());
 		driver.close();
 
@@ -41,6 +46,7 @@ public class dropdown {
 		Thread.sleep(2000);		
 		driver.findElement(By.id("divpaxinfo")).click();
 		Thread.sleep(2000);
+		// Display information to the console for the user.
 		System.out.println(driver.findElement(By.id("divpaxinfo")).getText());
 
 		 /*int i = 1;
@@ -50,6 +56,7 @@ public class dropdown {
 		}
 		
 		driver.findElement(By.id("btnclosepaxoption")).click();
+		// Display information to the console for the user.
 		System.out.println(driver.findElement(By.id("divpaxinfo")).getText()); */
 		
 		//can also use for loop
@@ -60,6 +67,7 @@ public class dropdown {
 		
 		driver.findElement(By.id("btnclosepaxoption")).click();
 
+		// Display information to the console for the user.
 		System.out.println(driver.findElement(By.id("divpaxinfo")).getText());
 		
 		Assert.assertEquals(driver.findElement(By.id("divpaxinfo")).getText(), "5 Adult");

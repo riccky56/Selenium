@@ -10,8 +10,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver; 
 import org.openqa.selenium.interactions.Actions; 
 
+// Class declaration that groups the related example logic in one place.
 public class window {
 
+	// Main method where program execution starts.
 	public static void main(String[] args) throws Exception {
 
 		// Step 1: Open LinkedIn login page
@@ -20,6 +22,7 @@ public class window {
 
 		// Step 2: Store the parent window handle
 		String parentWindow = driver.getWindowHandle();
+		// Display information to the console for the user.
 		System.out.println("Parent Window Handle: " + parentWindow);
 
 		// Step 3: Click on the "Sign in with Google" button
@@ -27,12 +30,15 @@ public class window {
 
 		// Step 4: Get all window handles
 		Set<String> allWindowHandles = driver.getWindowHandles();
+		// Display information to the console for the user.
 		System.out.println("All Window Handles: " + allWindowHandles);
          		// Step 5: Iterate through the window handles and switch to the child window (Google login window)
 		for (String windowHandle : allWindowHandles) {
+			// Check the condition before deciding whether this block should run.
 			if (!windowHandle.equals(parentWindow)) {
 				// Switch to Google login window
 				driver.switchTo().window(windowHandle);
+				// Display information to the console for the user.
 				System.out.println("Switched to Google Login Window");
 
 				// Step 6: Perform actions in the Google login window (e.g., enter email and password)
@@ -46,6 +52,7 @@ public class window {
 
 		// Step 7: After completing the Google login, switch back to the LinkedIn window
 		driver.switchTo().window(parentWindow);
+		// Display information to the console for the user.
 		System.out.println("Switched back to Parent Window");
 	}
 }

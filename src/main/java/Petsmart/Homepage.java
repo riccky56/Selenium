@@ -17,8 +17,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+// Class declaration that groups the related example logic in one place.
 public class Homepage {
 
+	// Main method where program execution starts.
 	public static void main(String[] args) throws InterruptedException {
 
 		// TODO Auto-generated method stub
@@ -61,11 +63,14 @@ public class Homepage {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.urlMatches("https://saucelabs.com/"));
 		
+		// Store text data that will be processed by the program logic.
 		String expectedTitle = "Sauce Labs: Cross Browser Testing, Selenium Testing & Mobile Testing";
+		// Store text data that will be processed by the program logic.
 		String actualTitle = driver.getTitle();
 		
 		
 		Assert.assertEquals(actualTitle,expectedTitle);
+		// Display information to the console for the user.
 		System.out.print("Test is passed");
 		
 		driver.close();

@@ -12,8 +12,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 
+// Class declaration that groups the related example logic in one place.
 public class a {
 	static WebDriver driver;
+	// Main method where program execution starts.
 	public static void main(String[] args) throws IOException {
 		WebDriver driver =new ChromeDriver();
 
@@ -25,6 +27,7 @@ public class a {
 
 		driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).click();
 
+		// Display information to the console for the user.
 		System.out.println(driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).isSelected());
 
 		Assert.assertTrue(driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).isSelected());

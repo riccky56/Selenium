@@ -7,9 +7,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
+// Class declaration that groups the related example logic in one place.
 public class assignment1 {
 	public static WebDriver driver;
 
+	// Main method where program execution starts.
 	public static void main(String[] args) {
 		
 		driver = new ChromeDriver();
@@ -35,6 +37,7 @@ public class assignment1 {
 
 		drop.selectByIndex(1);
 
+		// Display information to the console for the user.
 		System.out.println(drop.getFirstSelectedOption().getText());
 
 		driver.findElement(By.cssSelector("input[value='option2']")).click();

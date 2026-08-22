@@ -6,8 +6,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+// Class declaration that groups the related example logic in one place.
 public class Locators {
 	
+	// Main method where program execution starts.
 	public static void main(String[] args) throws InterruptedException {
 
 		WebDriver driver;
@@ -23,6 +25,7 @@ public class Locators {
 
 		driver.findElement(By.className("signInBtn")).click();
 
+		// Display information to the console for the user.
 		System.out.println(driver.findElement(By.cssSelector("p.error")).getText());
 
 		driver.findElement(By.linkText("Forgot your password?")).click();
@@ -41,6 +44,7 @@ public class Locators {
 
 		driver.findElement(By.cssSelector(".reset-pwd-btn")).click();
 
+		// Display information to the console for the user.
 		System.out.println(driver.findElement(By.cssSelector("form p")).getText());
 
 		driver.findElement(By.xpath("//div[@class='forgot-pwd-btn-conainer']/button[1]")).click();

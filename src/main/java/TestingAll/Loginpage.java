@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 import SeleniumTutorial.Learning.Browser;
 
+// Class declaration that groups the related example logic in one place.
 public class Loginpage extends Browser {
 
 	@BeforeTest
@@ -27,11 +28,13 @@ public class Loginpage extends Browser {
 	@Test(priority=1,description="this is atest method")
 	public void Name2()
 	{
+		// Display information to the console for the user.
 		System.out.println("this is a test");
 	}
 	
 	@Test(dataProvider = "loginData")
 	public void Name3() {
+		// Display information to the console for the user.
 		System.out.println("username");
 		
 	}

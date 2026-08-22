@@ -4,8 +4,10 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
+// Class declaration that groups the related example logic in one place.
 public class mouseaction {
 	public static WebDriver driver;
+	// Main method where program execution starts.
 	public static void main(String[] args) throws Exception {
 		
 		 driver = new ChromeDriver();

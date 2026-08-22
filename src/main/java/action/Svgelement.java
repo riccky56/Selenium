@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 
+// Class declaration that groups the related example logic in one place.
 public class Svgelement {
 	static WebDriver driver;
 

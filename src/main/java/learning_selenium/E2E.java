@@ -5,8 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
+// Class declaration that groups the related example logic in one place.
 public class E2E {
 	public static WebDriver driver;
+	// Main method where program execution starts.
 	public static void main(String[] args) throws InterruptedException {
 
 		driver = new ChromeDriver();
@@ -29,11 +31,13 @@ public class E2E {
 		/*if(driver.findElement(By.id("Div1")).getDomAttribute("style").contains("0.5"))
 
 		{
+			// Display information to the console for the user.
 			System.out.println("its disabled");
 
 			Assert.assertTrue(true);
 		}
 
+		// Execute this block when the earlier conditions do not match.
 		else
 		{
 			Assert.assertTrue(false);
@@ -45,6 +49,7 @@ public class E2E {
 
 		Thread.sleep(2000L);
 
+		// Loop through the data using an index or counter.
 		for(int i=1;i<5;i++)
 		{
 		driver.findElement(By.id("hrefIncAdt")).click();
@@ -54,6 +59,7 @@ public class E2E {
 
 		Assert.assertEquals(driver.findElement(By.id("divpaxinfo")).getText(), "5 Adult");
 
+		// Display information to the console for the user.
 		System.out.println(driver.findElement(By.id("divpaxinfo")).getText());
 
 		// driver.findElement(By.cssSelector("#ctl00_mainContent_btn_FindFlights")).click();

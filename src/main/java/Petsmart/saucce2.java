@@ -14,6 +14,7 @@ import org.testng.annotations.Test;
 
 import Base.Browser;
 
+// Class declaration that groups the related example logic in one place.
 public class saucce2 extends Browser {
 
 	@BeforeClass
@@ -43,8 +44,11 @@ public class saucce2 extends Browser {
 		//driver.findElement(By.xpath("//a[@id= 'logout_sidebar_link']")).click();                                   
 		Thread.sleep(3000);
 
+		// Store text data that will be processed by the program logic.
 		String expectedTitle = "Swag Labs";
+		// Store text data that will be processed by the program logic.
 		String actualTitle = driver.getTitle();
+		// Display information to the console for the user.
 		System.out.println(actualTitle);
 
 		Assert.assertEquals(actualTitle,expectedTitle);

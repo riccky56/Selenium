@@ -6,9 +6,11 @@ import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 
+// Class declaration that groups the related example logic in one place.
 public class navigation{
 	public static WebDriver driver;
 
+	// Main method where program execution starts.
 	public static void main(String[] args) {
 
 		 driver = new ChromeDriver();

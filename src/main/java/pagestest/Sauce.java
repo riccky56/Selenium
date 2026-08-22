@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 
 import pagesfortest.Browsersetup;
 
+// Class declaration that groups the related example logic in one place.
 public class Sauce extends Browsersetup {
 
 
@@ -39,14 +40,18 @@ public class Sauce extends Browsersetup {
 		Thread.sleep(2000);
 
        	String A = driver.findElement(By.xpath("//*[@id = 'inventory_filter_container']")).getText();
+		// Display information to the console for the user.
 		System.out.print(A);
+		// Store a true or false state needed for conditional logic.
 		boolean result = false;
+		// Check the condition before deciding whether this block should run.
 		if(A.contains("Products")) {
 			result = true;
 		}
 
 		Assert.assertEquals(true, result);
 
+		// Display information to the console for the user.
 		System.out.println("A");
 		
 
@@ -74,8 +79,11 @@ public class Sauce extends Browsersetup {
 		//driver.findElement(By.xpath("//a[@id= 'logout_sidebar_link']")).click();                                   
 		Thread.sleep(3000);
 		
+		// Store text data that will be processed by the program logic.
 		String expectedTitle = "Swag Labs";
+		// Store text data that will be processed by the program logic.
 		String actualTitle = driver.getTitle();
+		// Display information to the console for the user.
 		System.out.println(actualTitle);
 		
 		Assert.assertEquals(actualTitle,expectedTitle);
@@ -106,8 +114,11 @@ public class Sauce extends Browsersetup {
 		//driver.findElement(By.xpath("//a[@id= 'logout_sidebar_link']")).click();                                   
 		Thread.sleep(3000);
 		
+		// Store text data that will be processed by the program logic.
 		String expectedTitle = "Swag Labs";
+		// Store text data that will be processed by the program logic.
 		String actualTitle = driver.getTitle();
+		// Display information to the console for the user.
 		System.out.println(actualTitle);
 		
 		Assert.assertEquals(actualTitle,expectedTitle);

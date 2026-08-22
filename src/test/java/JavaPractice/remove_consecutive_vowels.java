@@ -1,5 +1,6 @@
 package JavaPractice;
 
+// Class declaration that groups the related example logic in one place.
 public class remove_consecutive_vowels { 
 	// function which returns True or False for occurrence of a vowel
 	static boolean is_vow(char c)
@@ -16,12 +17,14 @@ public class remove_consecutive_vowels {
 		for (int i = 1; i < str.length(); i++)
 			// comparison of consecutive characters
 			if ((!is_vow(str.charAt(i - 1))) || (!is_vow(str.charAt(i))))
+				// Display information to the console for the user.
 				System.out.print(str.charAt(i));
 	}
 
 	// Driver Code
 	public static void main(String[] args)
 	{
+		// Store text data that will be processed by the program logic.
 		String str = "geeks for geeks";
 		removeVowels(str);
 	}

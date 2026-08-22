@@ -3,34 +3,45 @@ package Hashmapexamples;
 import java.util.HashMap;
 import java.util.Map;
 
+// Class declaration that groups the related example logic in one place.
 public class Count_occurence_of_chars_InString {
 
+	// Main method where program execution starts.
 	public static void main(String [] args) {
 
 		// Creating a hashmap object
 
 		String a = "Welcome to the coding class";
 		
+		// Create a HashMap to store keys with their counts or mapped values.
 		HashMap<Character, Integer> hash_map = new HashMap<>();
 		
+		// Loop through each element one by one.
 		for (char c : a.toCharArray())
 		{
+			// Check the condition before deciding whether this block should run.
 			if (hash_map.containsKey(c))
 			{
+				// Store or update the current value in the map.
 				hash_map.put(c, hash_map.get(c) + 1);
 			}
 
+			// Execute this block when the earlier conditions do not match.
 			else
 			{
+				// Store or update the current value in the map.
 				hash_map.put(c, 1);
 			}
 		}
 		System.out.println(hash_map); // Print the hashmap object which gives the number of each character in String.
 		
+       // Loop through each element one by one.
        for(Map.Entry<Character,Integer> entry : hash_map.entrySet())
        {
+    	   // Check the condition before deciding whether this block should run.
     	   if(entry.getValue()>1) {
     		   
+    		   // Display information to the console for the user.
     		   System.out.println(entry.getKey()  + " : " + entry.getValue() );
     	   }
        }

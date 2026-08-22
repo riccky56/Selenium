@@ -5,8 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
+// Class declaration that groups the related example logic in one place.
 public class dropdownstatic {
 	public static WebDriver driver;
+	// Main method where program execution starts.
 	public static void main(String[] args) throws InterruptedException {
 
 		driver = new ChromeDriver(); driver.manage().window().maximize();
@@ -26,8 +28,10 @@ public class dropdownstatic {
 
 		}*/
 
+		// Display information to the console for the user.
 		System.out.println(driver.findElement(By.id("divpaxinfo")).getText());
 
+		// Loop through the data using an index or counter.
 		for(int i=1;i<5;i++)
 
 		{
@@ -38,6 +42,7 @@ public class dropdownstatic {
 
 		Assert.assertEquals(driver.findElement(By.id("divpaxinfo")).getText(), "5 Adult");
 
+		// Display information to the console for the user.
 		System.out.println(driver.findElement(By.id("divpaxinfo")).getText());
 		driver.close();
 

@@ -7,8 +7,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+// Class declaration that groups the related example logic in one place.
 public class checkboxes {
 	public static WebDriver driver;
+	// Main method where program execution starts.
 	public static void main(String[] args) {
 		
 		 driver= new ChromeDriver();
@@ -21,6 +23,7 @@ public class checkboxes {
 		 // 2. select all checkboxes
 		List<WebElement> allcheckboxes = driver.findElements(By.xpath("//input[@class='form-check-input' and @type='checkbox']"));
 		 
+		// Loop through each element one by one.
 		for(WebElement a:allcheckboxes) {
 			a.click();
 		}

@@ -9,9 +9,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+// Class declaration that groups the related example logic in one place.
 public class youtube {
 	public static WebDriver driver;
 	
+		  // Main method where program execution starts.
 		  public static void main(String[] args) throws InterruptedException {
 		    WebDriver driver=new ChromeDriver();
 
@@ -25,7 +27,9 @@ public class youtube {
 		    
 		    WebElement Uname = driver.findElement(By.id("identifierId"));
 		    Uname.sendKeys("nikhithasoma07@gmail.com");
+		    // Store text data that will be processed by the program logic.
 		    String title = driver.getTitle();
+		    // Display information to the console for the user.
 		    System.out.println(title);
 		    
 		    driver.close();

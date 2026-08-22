@@ -10,8 +10,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver; 
 import org.openqa.selenium.interactions.Actions; 
 
+// Class declaration that groups the related example logic in one place.
 public class MultipleWindow {
 
+	// Main method where program execution starts.
 	public static void main(String[] args) throws Exception {
 
 		// Step 1: Open LinkedIn login page
@@ -20,6 +22,7 @@ public class MultipleWindow {
 		driver.findElement(By.className("cc-cookie-accept")).click();
 		// Step 2: Store the parent window handle
 		String parentWindow = driver.getWindowHandle();
+		// Display information to the console for the user.
 		System.out.println("Parent Window Handle: " + parentWindow);
 		Thread.sleep(2000);
 		// Step 3: Click on the "Sign in with Google" button
@@ -27,13 +30,16 @@ public class MultipleWindow {
 
 		// Step 4: Get all window handles
 		Set<String> allWindowHandles = driver.getWindowHandles();
+		// Display information to the console for the user.
 		System.out.println("All Window Handles: " + allWindowHandles);
 
 		// Step 5: Iterate through the window handles and switch to the child window (Google login window)
 		for (String windowHandle : allWindowHandles) {
+			// Check the condition before deciding whether this block should run.
 			if (!windowHandle.equals(parentWindow)) {
 				// Switch to Linkedin login window
 				driver.switchTo().window(windowHandle);
+				// Display information to the console for the user.
 				System.out.println("Switched to LinkedIn Login Window");
 				Thread.sleep(2000);
 
@@ -48,6 +54,7 @@ public class MultipleWindow {
 
 		// Step 7: After completing the Google login, switch back to the LinkedIn window
 		driver.switchTo().window(parentWindow);
+		// Display information to the console for the user.
 		System.out.println("Switched back to Parent Window");
 		driver.quit();
 	}

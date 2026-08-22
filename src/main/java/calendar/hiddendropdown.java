@@ -8,8 +8,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+// Class declaration that groups the related example logic in one place.
 public class hiddendropdown {
 	public static WebDriver driver;
+	// Main method where program execution starts.
 	public static void main(String[] args) throws InterruptedException {
 
 		driver = new ChromeDriver(); driver.manage().window().maximize();
@@ -33,20 +35,26 @@ public class hiddendropdown {
 
 		for( WebElement option : alloptions)               //iterate for every element get the text and add in the list
 		{
+			// Add the current value into the collection.
 			suggestionscreen.add(option.getText());
 
 		}
 		
+		// Display information to the console for the user.
 		System.out.println(suggestionscreen);
+		// Display information to the console for the user.
 		System.out.println(suggestionscreen.size());
 
 		for(WebElement a:alloptions) // to print all items from list of suggestion
 		{
+			// Store text data that will be processed by the program logic.
 			String option = a.getText();
 			
+			// Check the condition before deciding whether this block should run.
 			if(option.matches("Automation_Tester")) {
 				a.click();
 			}
+			// Display information to the console for the user.
 			System.out.println(option);
 		}
 

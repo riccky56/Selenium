@@ -8,8 +8,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+// Class declaration that groups the related example logic in one place.
 public class autosuggestivedropdown {
 	public static WebDriver driver;
+	// Main method where program execution starts.
 	public static void main(String[] args) throws InterruptedException {
 		
 		
@@ -25,8 +27,10 @@ public class autosuggestivedropdown {
 
 		List<WebElement> options = driver.findElements(By.cssSelector("li[class='ui-menu-item'] a")); //in css   "parent space child"
 
+		// Loop through each element one by one.
 		for(WebElement option :options)
 		{
+			// Check the condition before deciding whether this block should run.
 			if(option.getText().equalsIgnoreCase("India"))
 			{
 				option.click();
