@@ -11,8 +11,7 @@
   <url>http://maven.apache.org</url>
   
   <properties>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
+    <maven.compiler.release>21</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   
@@ -31,7 +30,8 @@
     <groupId>org.testng</groupId>
     <artifactId>testng</artifactId>
     <version>7.10.2</version>
-    <scope>test</scope>
+    <!-- Main-source examples use TestNG. -->
+    <scope>compile</scope>
 </dependency>
 	
 <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-manager -->
@@ -50,7 +50,17 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.13.2</version>
-      <scope>test</scope>
+      <!-- Main-source examples use JUnit assertions. -->
+      <scope>compile</scope>
     </dependency>
   </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.13.0</version>
+      </plugin>
+    </plugins>
+  </build>
 </project>
