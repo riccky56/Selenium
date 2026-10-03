@@ -1,4 +1,4 @@
-package arrays;
+ package arrays;
 
 // Class declaration that groups the related example logic in one place.
 public class print_consecutive_twostrings {

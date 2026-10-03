@@ -5,38 +5,40 @@ public class everything {
 
 	// Main method where program execution starts.
 	public static void main(String[] args) {
-		
+
 		// Store text data that will be processed by the program logic.
 		String a = "Test1233Gtsag!@#$dwdb1234";
-		
+		String b = a.replaceAll("[^a-zA-Z0-9]", "");
+		System.out.println(b);
+
 		// Store text data that will be processed by the program logic.
-		String letters ="";
+		String letters = "";
 		// Store text data that will be processed by the program logic.
-		String digit ="";
+		String digit = "";
 		// Store text data that will be processed by the program logic.
-		String special ="";
+		String special = "";
 		// Loop through each element one by one.
-		for( char c :a.toCharArray()) {
-			
+		for (char c : a.toCharArray()) {
+
 			// Check the condition before deciding whether this block should run.
-			if(Character.isLetter(c)) {
+			if (Character.isLetter(c)) {
 				// Update the variable based on the current calculation.
 				letters = letters + c;
-			}else if(Character.isDigit(c)) {
+			} else if (Character.isDigit(c)) {
 				// Update the variable based on the current calculation.
 				digit = digit + c;
-			}else {
+			} else {
 				// Update the variable based on the current calculation.
-				special = special+c;
+				special = special + c;
 			}
-			
+
 		}
 		// Display information to the console for the user.
-		System.out.println("Printed Letters : " +letters);
+		System.out.println("Printed Letters : " + letters);
 		// Display information to the console for the user.
-		System.out.println("Printed Letters : " +digit);
+		System.out.println("Printed Letters : " + digit);
 		// Display information to the console for the user.
-		System.out.println("Printed specials : " +special);
+		System.out.println("Printed specials : " + special);
 
 	}
 

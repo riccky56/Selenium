@@ -8,31 +8,38 @@ public class remove_space_from_given_string {
 	// Main method where program execution starts.
 	public static void main(String[] args) {
 		
-		// Create a Scanner object to read input from the user.
+		// Scanner is used to read a full line of text from the user.
 		Scanner scanner = new Scanner(System.in);
-		// Display information to the console for the user.
+
+		// Ask the user to enter a string that may contain spaces.
 		System.out.print("Enter a string with spaces: ");
-		// Store text data that will be processed by the program logic.
+
+		// Read the complete input line including spaces.
 		String input = scanner.nextLine();
-		// Store text data that will be processed by the program logic.
+
+		// Call the helper method to remove spaces from the input string.
 		String stringWithoutSpaces = removeSpaces(input);
-		// Display information to the console for the user.
+
+		// Print the final string after spaces are removed.
 		System.out.println("String without spaces: " +
 				stringWithoutSpaces);
 	}
-	// Helper method used to perform a specific part of the program logic.
+
+	// This method creates a new string by skipping space characters.
 	public static String removeSpaces(String str) {
-		// Use StringBuilder to build the final string efficiently.
+		// StringBuilder is used because it is efficient for repeated string appends.
 		StringBuilder result = new StringBuilder();
-		// Loop through the data using an index or counter.
+
+		// Loop through every character in the given string.
 		for (int i = 0; i < str.length(); i++) {
-			// Check the condition before deciding whether this block should run.
+			// Append only non-space characters to the result.
 			if (str.charAt(i) != ' ') {
 				// Append the current value to the growing result.
 				result.append(str.charAt(i));
 			}
 		}
-		// Return the final result back to the caller.
+
+		// Convert StringBuilder back to String and return it.
 		return result.toString();
 	}
 }

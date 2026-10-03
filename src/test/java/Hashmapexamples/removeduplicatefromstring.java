@@ -5,17 +5,20 @@ public class removeduplicatefromstring {
 
 	// Main method where program execution starts.
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// Input string that may contain repeated characters.
 		
 		String a = "cabbage";
-		// Store text data that will be processed by the program logic.
+
+		// This string will store characters only once, in their original order.
 		String b = "";
-		// Loop through the data using an index or counter.
+
+		// Loop through each character of the input string.
 		for(int i=0; i<=a.length()-1; i++) {
-			// Read or store the current character needed for processing.
+			// Get one character at the current index.
 			char ch = a.charAt(i);
 		     
-				// Check the condition before deciding whether this block should run.
+				// indexOf(ch) returns -1 when the character is not yet present in b.
+				// Only new characters are added, so duplicates are skipped.
 				if(b.indexOf(ch) == -1) 
 				{
 					// Update the variable based on the current calculation.
@@ -23,7 +26,8 @@ public class removeduplicatefromstring {
 				}
 			
 			}
-		// Display information to the console for the user.
+
+		// Print the string after duplicate characters are removed.
 		System.out.println(b);
 			
 	}

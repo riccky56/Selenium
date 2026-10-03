@@ -7,10 +7,10 @@ public class stringanagram {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String a = "rahul";
-		 // Store text data that will be processed by the program logic.
+		
 		 String b = "";
 		 
-		 // Store text data that will be processed by the program logic.
+		
 		 String c = "";
 		// Loop through the data using an index or counter.
 		for(int i = a.length()-2; i>=0; i--) {

@@ -10,11 +10,14 @@ public class removeduplicatefromstring {
 		String a = "cabbage";
 		// Store text data that will be processed by the program logic.
 		String b = "";
+		
+		
 		// Loop through the data using an index or counter.
 		for(int i=0; i<=a.length()-1; i++) {
 			// Read or store the current character needed for processing.
 			char ch = a.charAt(i);
 		
+			
 				// Check the condition before deciding whether this block should run.
 				if(b.indexOf(ch) == -1)
 				{

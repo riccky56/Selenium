@@ -10,26 +10,25 @@ public class primetill200 {
 		System.out.println("Prime numbers till 200 are : ");
 
 		// Loop through the data using an index or counter.
-		for(int number=2; number<=200; number++) {
+		for (int number = 2; number <= 200; number++) {
 			// Store a true or false state needed for conditional logic.
-			boolean isPrime=true;
-
+			boolean isPrime = true;
 
 			// Loop through the data using an index or counter.
-			for(int i=2; i<=Math.sqrt(number); i++) {        
+			for (int i = 2; i <= Math.sqrt(number); i++) {
+				// for(int i=2; i<=number/2; i++) {
 
-				// Check the condition before deciding whether this block should run.
-				if(number%i==0) {
-					isPrime=false;
+				if (number % i == 0) {
+					isPrime = false;
 					break;
-				} 		  
+				}
 
 			}
 			// Check the condition before deciding whether this block should run.
-			if(isPrime) {
+			if (isPrime) {
 				// Display information to the console for the user.
-				System.out.println(number + " ");
-			}
+				System.out.print(number + ",");	
+			}	
 
 		}
 	}

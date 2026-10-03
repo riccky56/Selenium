@@ -7,30 +7,37 @@ public class secondsmallestinarray {
 
 	// Main method where program execution starts.
 	public static void main(String[] args) {
-		// TODO Auto-generated method 
+		// Input array from which the smallest and second smallest values will be found.
 		int[] a = {4,6,6,4,5,5,5,6,3,2, 4,5, 56,43,2,2,2,3,4,2,1,3,43,23,4,4};
-		// Initialize a variable that will be used in the logic.
+
+		// Start with the largest possible integer so any array value can replace it.
 		int smallest= Integer.MAX_VALUE;
-		// Initialize a variable that will be used in the logic.
+
+		// This stores the second smallest distinct value found so far.
 		int secondsmallest = Integer.MAX_VALUE;
 
-		// Loop through the data using an index or counter.
+		// Traverse the array once and update smallest values as needed.
 		for(int i = 0; i<a.length; i++) {
 
-			// Check the condition before deciding whether this block should run.
+			// If the current element is smaller than the smallest value seen so far,
+			// move the old smallest to secondsmallest and update smallest.
 			if(a[i] < smallest) {
 				
                 secondsmallest=smallest;
 				smallest =  a[i];
 			}
-			// Check another condition if the previous condition was false.
+
+			// If the element is greater than smallest but smaller than secondsmallest,
+			// then it becomes the new second smallest distinct value.
 			else if(a[i] < secondsmallest && a[i] !=smallest) {
 
 				secondsmallest = a[i];
 			}
 		}
-		// Display information to the console for the user.
+
+		// Print the minimum value in the array.
 		System.out.println(smallest);
-		// Display information to the console for the user.
+
+		// Print the second minimum distinct value in the array.
 		System.out.println(secondsmallest);
 	}}

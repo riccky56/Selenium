@@ -20,7 +20,9 @@ public class longest_substring {
               {
 				  current = current.substring(current.indexOf(ch)+1);
 			  }
+              
 			current +=ch;
+			
 			// Check the condition before deciding whether this block should run.
 			if(current.length()>longest.length()) {
 				longest=current;

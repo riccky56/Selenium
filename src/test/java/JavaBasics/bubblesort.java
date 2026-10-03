@@ -1,5 +1,5 @@
 package JavaBasics;
-
+import java.util.*;
 // Class declaration that groups the related example logic in one place.
 public class bubblesort {
 
@@ -26,11 +26,15 @@ public class bubblesort {
 				}
 			}
 		}
+		
+		// Display information to the console for the user.
+		System.out.println(Arrays.toString(a));
+		
 		// Loop through the data using an index or counter.
 		for(int i=0;i<=a.length-1;i++)
 		{
 			// Display information to the console for the user.
-			System.out.print(a[i] + " ");
+			System.out.print(a[i] + ",");
 		}
 
 	}

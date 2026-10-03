@@ -5,13 +5,12 @@ public class check_string_for_alphabets {
 
 	// Main method where program execution starts.
 	public static void main(String[] args) {
-		
-		// Store text data that will be processed by the program logic.
+	
 		String a = "10";
-		// Store text data that will be processed by the program logic.
+	
 		String b = "20";
+	
 		
-		// Store text data that will be processed by the program logic.
 		String  result = "";
 	
 		// Check the condition before deciding whether this block should run.
@@ -35,4 +34,3 @@ public class check_string_for_alphabets {
 	}
 
 }
-    

@@ -1,4 +1,4 @@
-package arrays;
+  package arrays;
 // Class declaration that groups the related example logic in one place.
 public class longestsubstring {
 
@@ -15,6 +15,7 @@ public class longestsubstring {
 		for(char c : s.toCharArray()) {
 			// Store text data that will be processed by the program logic.
 			String ch = String.valueOf(c);
+		
 				
 			// Check the condition before deciding whether this block should run.
 			if(current.contains(ch))
@@ -22,6 +23,7 @@ public class longestsubstring {
 				current = current.substring(current.indexOf(ch) + 1);
 				
 			}
+			
 			// Update the variable based on the current calculation.
 			current = current+ch;
 			

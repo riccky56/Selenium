@@ -1,5 +1,5 @@
 package JavaBasics;
-
+import java.util.Arrays;
 // Class declaration that groups the related example logic in one place.
 public class exercise_array {
 
@@ -21,6 +21,7 @@ public class exercise_array {
 		            // Display information to the console for the user.
 		            System.out.println(numbers[i]);
 		        }
+		       
 		 
 		        // 4. Bonus: Element Count
 		        System.out.println("Total elements in the array: " + numbers.length);

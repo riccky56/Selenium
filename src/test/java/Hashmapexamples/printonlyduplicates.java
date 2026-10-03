@@ -8,23 +8,23 @@ public class printonlyduplicates {
 	// Main method where program execution starts.
 	public static void main(String [] args) {
 		
-		// Store text data that will be processed by the program logic.
+		// Input string from which duplicate characters will be found.
 		String a = "Welcome to the coding class";
 
-		// Create a HashMap to store keys with their counts or mapped values.
+		// HashMap keeps track of each character and how many times it appears.
 		HashMap<Character, Integer> hash_map = new HashMap<>();
 
-		// Loop through each element one by one.
+		// Read every character from the string one by one.
 		for (char c : a.toCharArray())
 		{
-			// Check the condition before deciding whether this block should run.
+			// If the character already exists, increase its count.
 			if (hash_map.containsKey(c))
 			{
 				// Store or update the current value in the map.
 				hash_map.put(c, hash_map.get(c) + 1);
 			}
 
-			// Execute this block when the earlier conditions do not match.
+			// Otherwise add the character for the first time with count 1.
 			else
 			{
 				// Store or update the current value in the map.
@@ -32,12 +32,12 @@ public class printonlyduplicates {
 			}
 		}
 		
-		// Print the hashmap object which gives the number of each character in String.
+		// Print the full map so we can see the frequency of all characters.
 		System.out.println(hash_map);
 
-		// Loop through each element one by one.
+		// Loop through each map entry and print only the repeated characters.
 		for(Map.Entry<Character, Integer> entry:hash_map.entrySet()) {
-			// Check the condition before deciding whether this block should run.
+			// A value greater than 1 means that character is duplicated.
 			if(entry.getValue()>1) {
 
 				// Display information to the console for the user.

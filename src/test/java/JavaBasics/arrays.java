@@ -21,8 +21,6 @@ public class arrays {
 		// Store a true or false state needed for conditional logic.
 		boolean myCard = true;
 
-
-
 		// Display information to the console for the user.
 		System.out.println(myNum+"is the value stored in the myNum variable");
 
@@ -37,8 +35,8 @@ public class arrays {
 
 		arr[3]= 5; 		arr[4]= 6;
 
-
-		// Declare and initialize an integer array used in this example.
+//best way to initialize and assign value to a array  
+		
 		int[] arr2 = {1,2,4,5,6};
 
 		// Display information to the console for the user.
@@ -56,7 +54,7 @@ public class arrays {
 
 		{
 			// Display information to the console for the user.
-			System.out.print(arr[i]);
+			System.out.println(arr[i]);
 		}
 
 		// Loop through the data using an index or counter.
@@ -64,7 +62,7 @@ public class arrays {
 
 		{
 			// Display information to the console for the user.
-			System.out.println(arr2[i]);
+			System.out.print(arr2[i]);
 		}
 
 		String[] name = {"rahul", "shetty", "selenium"};
@@ -81,18 +79,9 @@ public class arrays {
 		for( String s: name)
 
 		{
-
 			// Display information to the console for the user.
 			System.out.println(s);
-
 		}
 
-
-
 	}
-
-
-
-
-
 }

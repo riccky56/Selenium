@@ -1,8 +1,11 @@
 package arrays;
 
-public class count_occurences {
-	
+// Class declaration that groups the related example logic in one place.
+public class asdfghjk {
+
+	// Main method where program execution starts.
 	public static void main(String[] args) {
+
 
 		// Store text data that will be processed by the program logic.
 		String a = "millionaire";
@@ -34,12 +37,15 @@ public class count_occurences {
 			}
 
 			//System.out.println(b[i] + " : " + count );
-		
+
 			if(count>1) 
 			{
 				// Display information to the console for the user.
 				System.out.println(b[i] + " = " +count);
 			}
 		}
+
+
 	}
+
 }
