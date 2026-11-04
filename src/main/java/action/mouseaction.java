@@ -27,6 +27,8 @@ public class mouseaction {
 		// Hover over Desktops and then the Mac submenu item.
 		act.moveToElement(desktop).moveToElement(mac).build().perform();
 		
+		act.moveToElement(mac).clickAndHold(mac).build().perform();
+		
 		// Open the context menu on the Mac submenu item.
 		act.contextClick(mac);
 		// Perform a double-click on the Desktops menu item.
